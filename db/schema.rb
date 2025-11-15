@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_13_033316) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_15_184725) do
+  create_table "doctor_specialities", force: :cascade do |t|
+    t.integer "doctor_id", null: false
+    t.integer "speciality_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id", "speciality_id"], name: "index_doctor_specialities_on_doctor_id_and_speciality_id", unique: true
+    t.index ["doctor_id"], name: "index_doctor_specialities_on_doctor_id"
+    t.index ["speciality_id"], name: "index_doctor_specialities_on_speciality_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "full_name", null: false
     t.string "medical_code", null: false
@@ -23,4 +33,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_13_033316) do
     t.index ["identity_card"], name: "index_doctors_on_identity_card", unique: true
     t.index ["medical_code"], name: "index_doctors_on_medical_code", unique: true
   end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "LOWER(name)", name: "index_specialities_on_lower_name", unique: true
+  end
+
+  add_foreign_key "doctor_specialities", "doctors"
+  add_foreign_key "doctor_specialities", "specialities"
 end
