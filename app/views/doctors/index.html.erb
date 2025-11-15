@@ -1,0 +1,13 @@
+<% content_for :title do %>
+     Listado de doctores
+<% end %>
+
+
+<h1> Doctors </h1>
+<ul>
+    <% @doctors.each do |doctor| %>
+        <%= doctor.full_name %>
+
+    <% end %>
+
+</ul>
