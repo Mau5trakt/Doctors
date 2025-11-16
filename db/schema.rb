@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_15_184725) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_16_005636) do
   create_table "doctor_specialities", force: :cascade do |t|
     t.integer "doctor_id", null: false
     t.integer "speciality_id", null: false
@@ -42,6 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_15_184725) do
     t.index "LOWER(name)", name: "index_specialities_on_lower_name", unique: true
   end
 
-  add_foreign_key "doctor_specialities", "doctors"
-  add_foreign_key "doctor_specialities", "specialities"
+  add_foreign_key "doctor_specialities", "doctors", on_delete: :cascade
+  add_foreign_key "doctor_specialities", "specialities", on_delete: :cascade
 end
