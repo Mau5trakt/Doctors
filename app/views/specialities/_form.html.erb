@@ -1,0 +1,29 @@
+<%= form_with model: speciality, html: { class: "form__element" } do |f|  %>
+    <% if @speciality.errors.any? %>
+        <div class="form__errors">
+            <h2 class="form__errors--title">  Error  </h2>
+            <ul class="form__errors--list">
+                <% @speciality.errors.messages.each do |attribute, messages| %>
+                    <% messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="field">
+        <%= f.label :name, "Nombre (requerido)", class: "field__label" %>
+        <%= f.text_field :name, class: "field__input" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :description, "Descripción (opcional)", class: "field__label" %>
+        <%= f.text_field :description, class: "field__input" %>
+    </div>
+
+    <div class="field">
+        <%= f.submit button_text, class: "button__full--success" %>
+    </div>
+<% end %>

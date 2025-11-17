@@ -1,0 +1,36 @@
+
+
+<section class="section container_wrapper">
+        <div class="detail">
+        <div class="detail__ctn">
+            <div class="detail__card">
+                <div class="detail__card--top">
+                    <div class="detail__card--header">
+                        <h1> <%= @speciality.name %> </h1>
+                    </div>
+                    <div class="detail__card--info">
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Descripción
+                            </span>
+                            <span class="field__value"> 
+                                <%= @speciality.description.presence || "No hay descripción disponible"  %>
+                            </span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="detail__card--bottom">
+                    <%= button_to "Eliminar especialidad", speciality_path(@speciality), method: :delete, class: "button__full--error" %>
+                    <%= link_to "Editar especialidad", edit_speciality_path(@speciality), class: "button__full--success" %>
+                    
+                    
+                </div>
+            
+                
+            </div>
+
+        </div>
+    </div>
+
+    </section>

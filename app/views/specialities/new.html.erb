@@ -1,0 +1,17 @@
+<% content_for :title do %>
+     Agregar nueva especialidad
+<% end %>
+
+<section class="section container_wrapper">
+     <div class="form">
+          <div class="form__ctn">
+               <div class="form__header">
+                    <h1>Agregar nueva especialidad</h1>
+               </div>
+
+               <%= render "form", speciality: @speciality, button_text: "Agregar especialidad"  %>
+          </div>
+          
+     </div>
+</section>
+

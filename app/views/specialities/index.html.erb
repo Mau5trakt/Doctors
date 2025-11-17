@@ -1,0 +1,44 @@
+<% content_for :title do %>
+     Listado de especialidades
+<% end %>
+<section class="section container_wrapper">
+    <div class="page_description">  
+        <div>
+            <h1>Listado de especialidades</h1>
+        </div>
+    </div>
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr class="table__row">
+                  <th class="table___text--title">Nombre</th>
+                  <th class="table___text--title">Descripción</th>
+                  <th class="table___text--title">Acciones</th>
+               </tr>
+        </thead>
+        <tbody>
+            <% @specialities.each do |speciality| %>
+            
+            <tr class="table__row">
+                  <td class="table__text--permalink"> <%= link_to speciality.name, speciality_path(speciality), class: "table__text--permalink" %> </td>
+                  <td class="table__text--default"><%= speciality.description.presence || "No hay descripción disponible"  %></td>
+                  <td class="table__data--flex-container"> 
+                    <%= link_to edit_speciality_path(speciality), class: "button table__button action-btn" do %>
+                            <%= render "shared/icon_edit" %>
+                    <% end %>
+                    <%= link_to speciality_path(speciality), class: "button table__button delete-btn" do %>
+                        <%= render "shared/delete" %>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+     
+</div>
+<div class="pagination_element">
+    <%= will_paginate @specialities, previous_label: '<', next_label: '>' %>
+</div>
+
+
+</section>
