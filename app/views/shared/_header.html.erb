@@ -1,0 +1,20 @@
+<header class="header">
+    
+    <nav class="header__navigation">
+        <ul class="header__navigation--list">
+            <li>
+                <%= link_to "Ver Doctores", doctors_path, class: "header__permalink" %>
+            </li>
+            <li>
+                <%= link_to "Ver Especialidades", specialities_path, class: "header__permalink" %>
+            </li>
+            <li>
+                <%= link_to "Agregar Doctor", new_doctor_path, class: "header__permalink" %>
+            </li>
+            <li>
+                <%= link_to "Agregar Especialidad", new_speciality_path, class: "header__permalink" %>
+            </li>
+        </ul>
+    </nav>
+    
+</header>
