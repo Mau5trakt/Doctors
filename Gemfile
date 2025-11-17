@@ -5,7 +5,14 @@ gem "rails", "~> 7.2.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
+
+# Comentar esta gema si se usa Linux o Mac
 gem "sqlite3", "~> 1.7", platform: :mingw
+
+# Comentar esta gema si se usa windows
+#gem "sqlite3", "~> 1.7"
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

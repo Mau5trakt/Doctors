@@ -1,24 +1,58 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Paso a paso para instalar y ejecutar el proyecto Doctors
 
-Things you may want to cover:
+Versión de Ruby: 3.0.7 (windows)
+Versión de Rails: Rails 7.2.3
+Base de datos: Sqlite
 
-* Ruby version
+## Clonar el repositorio
 
-* System dependencies
+Dentro de una carpeta ejecutar el comando 
 
-* Configuration
+``` bash
+git clone https://github.com/Mau5trakt/Doctors.git
+```
 
-* Database creation
+una vez clonado entrar a la carpeta `Doctors`
 
-* Database initialization
+``` bash
+cd Doctors
+```
 
-* How to run the test suite
+## Instalación del proyecto
 
-* Services (job queues, cache servers, search engines, etc.)
+### Nota en caso de estar usando linux/mac comentar la línea 10 del Gemfile y descomentar la línea 13 
 
-* Deployment instructions
+Instalar las librerias necesarias
 
-* ...
+``` bash
+bundle install
+```
+
+
+
+##  Crear y alimentar la base de datos
+
+``` bash
+rails db:create
+```
+
+``` bash
+rails db:migrate
+```
+
+``` bash
+rails db:seed
+```
+
+## Ejecutar el proyecto
+
+``` bash
+rails s
+```
+
+el proyecto se ejecutará por defecto en `http://localhost:3000`
+
+### NOTA: 
+En caso de error al ejecutar por primera vez en windows, terminar la ejecución de rails,  ejecutar el comando `rails dev:cache` y volver a ejecutar el proyecto
