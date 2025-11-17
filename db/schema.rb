@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_16_005636) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_17_003902) do
   create_table "doctor_specialities", force: :cascade do |t|
     t.integer "doctor_id", null: false
     t.integer "speciality_id", null: false
@@ -29,6 +29,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_16_005636) do
     t.string "identity_card", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "LOWER(email)", name: "index_specialities_on_lower_email", unique: true
+    t.index "LOWER(identity_card)", name: "index_specialities_on_lower_identity_card", unique: true
+    t.index "LOWER(medical_code)", name: "index_specialities_on_lower_medical_code", unique: true
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["identity_card"], name: "index_doctors_on_identity_card", unique: true
     t.index ["medical_code"], name: "index_doctors_on_medical_code", unique: true
