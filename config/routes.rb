@@ -11,6 +11,16 @@ Rails.application.routes.draw do
 
 
   get "/", to: "doctors#index", as: "index"
+
+  resources :specialities, path: "especialidades", path_names: {
+    new: "crear",
+    edit: "editar"
+  }
+
+  resources :doctors, path: "doctores", path_names: {
+    new: "crear",
+    edit: "editar"
+
+  }
   
-  # root "posts#index"
 end
