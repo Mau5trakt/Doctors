@@ -1,0 +1,16 @@
+<% content_for :title do %>
+     Agregar nuevo doctor
+<% end %>
+
+<section class="section container_wrapper">
+     <div class="form">
+          <div class="form__ctn">
+               <div class="form__header">
+                    <h1>Agregar nuevo doctor</h1>
+               </div>
+
+               <%= render "form", doctor: @doctor, button_text: "Agregar doctor"  %>
+          </div>
+          
+     </div>
+</section>

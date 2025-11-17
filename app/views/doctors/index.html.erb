@@ -1,13 +1,45 @@
 <% content_for :title do %>
      Listado de doctores
 <% end %>
+<section class="section container_wrapper">
+    <div class="page_description">  
+        <div>
+            <h1>Listado de doctores</h1>
+        </div>
+    </div>
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr class="table__row">
+                  <th class="table___text--title">Nombre</th>
+                  <th class="table___text--title">Correo</th>
+                  <th class="table___text--title">Código</th>
+                  <th class="table___text--title">Acciones</th>
+               </tr>
+        </thead>
+        <tbody>
+            <% @doctors.each do |doctor| %>
+            
+            <tr class="table__row">
+                  <td class="table__text--permalink"> <%= link_to doctor.full_name, doctor_path(doctor), class: "table__text--permalink" %> </td>
+                  <td class="table__text--default"><%= doctor.email   %></td>
+                  <td class="table__text--default"> <span class="table__code"> <%= doctor.medical_code   %> </span> </td>
+                  
+                  <td class="table__data--flex-container"> 
+                    <%= link_to edit_doctor_path(doctor), class: "button table__button action-btn" do %>
+                            <%= render "shared/icon_edit" %>
+                    <% end %>
+                    <%= link_to doctor_path(doctor), class: "button table__button delete-btn", method: :delete do %>
+                        <%= render "shared/delete" %>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<div class="pagination_element">
+    <%= will_paginate @doctors, previous_label: '<', next_label: '>' %>
+</div>
 
-
-<h1> Doctors </h1>
-<ul>
-    <% @doctors.each do |doctor| %>
-        <%= doctor.full_name %>
-
-    <% end %>
-
-</ul>
+</section>

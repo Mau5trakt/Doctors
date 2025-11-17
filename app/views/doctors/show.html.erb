@@ -1,0 +1,79 @@
+
+
+<section class="section container_wrapper">
+        <div class="detail">
+        <div class="detail__ctn">
+            <div class="detail__card">
+                <div class="detail__card--top">
+                    <div class="detail__card--header">
+                        <h1> <%= @doctor.full_name %> </h1>
+                    </div>
+                    <div class="detail__card--info">
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Correo Electrónico
+                            </span>
+                            <span class="field__value"> 
+                                <%= @doctor.email  %>
+                            </span>
+                        </div>
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Código
+                            </span>
+                            <span class="tag tag__default"> 
+                                <%= @doctor.medical_code  %>
+                            </span>
+                        </div>
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Número de teléfono
+                            </span>
+                            <span class="field__value"> 
+                                <%= @doctor.phone_number  %>
+                            </span>
+                        </div>
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Cédula de identidad
+                            </span>
+                            <span class="field__value"> 
+                                <%= @doctor.identity_card  %>
+                            </span>
+                        </div>
+                        <div class="detail__card--group">
+                            <span class="field__title">
+                                Especialidades
+                            </span>
+                            <div class="detail__card--specialities">
+                                <% if @doctor.specialities.any? %>
+                                    <% @doctor.specialities.each do |speciality| %>
+                                        <span class="tag tag__speciality"> <%= speciality.name %> </span>
+
+                                    <% end %>
+                                <% else %>
+                                    <p> Este médico no tiene especialidades asociadas </p>
+
+                                <% end %>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="detail__card--bottom">
+                    <%= button_to "Eliminar doctor", doctor_path(@doctor), method: :delete, class: "button__full--error" %>
+                    <%= link_to "Editar doctor", edit_doctor_path(@doctor), class: "button__full--success" %>
+                    
+                    
+                </div>
+            
+                
+            </div>
+
+        </div>
+    </div>
+
+    </section>
